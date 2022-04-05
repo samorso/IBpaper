@@ -973,14 +973,14 @@ betareg.nofit <- function(x, y, z = NULL, coefficients, weights = NULL, offset =
 }
 
 #' @title
-#' Construct an `glm` object for logistic regression with predefined coefficients
+#' Construct a `glm` object for logistic regression with predefined coefficients
 #' @description
 #' It creates an object of class \code{glm} with \code{family=binomial(link = "logit")},
 #' as one would obtain when fitting a logistic regression, but here there is no
-#' fit, one simply provide a design matrix and coefficients. This function is
+#' fit, one simply provides a design matrix and coefficients. This function is
 #' particularly useful in conjunction with \code{simulation} method from the
 #' \code{ib} package to simulate from this model.
-#' @param x n x p design matrix
+#' @param x n x p design matrix (no intercept)
 #' @param coefficients p+1 vector of coefficients, the first coefficient is the intercept.
 #' @importFrom stats rbinom
 #' @seealso \code{\link[stats]{glm}}, \code{\link[ib]{simulation}}
@@ -992,14 +992,14 @@ make_logistic <- function(x, coefficients){
 }
 
 #' @title
-#' Construct an `negbin` object for logistic regression with predefined coefficients
+#' Construct a `negbin` object for negative binomial regression with predefined coefficients
 #' @description
 #' It creates an object of class \code{negbin} from \code{MASS} package,
 #' as one would obtain when fitting a negative binomial regression, but here there is no
-#' fit, one simply provide a design matrix and coefficients. This function is
+#' fit, one simply provides a design matrix and coefficients. This function is
 #' particularly useful in conjunction with \code{simulation} method from the
 #' \code{ib} package to simulate from this model.
-#' @param x n x p design matrix
+#' @param x n x p design matrix (no intercept)
 #' @param coefficients p+1 vector of coefficients, the first coefficient is the intercept.
 #' @param theta additional parameter for negative binomial regression
 #' @importFrom MASS rnegbin
@@ -1012,16 +1012,16 @@ make_negbin <- function(x, coefficients, theta){
 }
 
 #' @title
-#' Construct an `betareg` object for beta regression with predefined coefficients
+#' Construct a `betareg` object for beta regression with predefined coefficients
 #' @description
 #' It creates an object of class \code{betareg} from \code{betareg} package,
 #' as one would obtain when fitting a beta regression, but here there is no
-#' fit, one simply provide a design matrix and coefficients. This function is
+#' fit, one simply provides a design matrix and coefficients. This function is
 #' particularly useful in conjunction with \code{simulation} method from the
 #' \code{ib} package to simulate from this model.
-#' @param x n x p design matrix
+#' @param x n x p design matrix (no intercept)
 #' @param coefficients p+2 vector of coefficients, the first coefficient is the intercept,
-#' the last coefficient is the the precision parameter.
+#' the last coefficient is the precision parameter.
 #' @importFrom stats rbeta
 #' @seealso \code{\link[betareg]{betareg}}, \code{\link[ib]{simulation}}
 #' @export

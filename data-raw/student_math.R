@@ -10,22 +10,30 @@ var_names <- colnames(student_math)
 var_names <- var_names[-c(7,8,27,28,29)] # remove Medu, Fedu, Dalc, Walc and health
 tmp <- subset(student_math, select=var_names)
 
-# Re-level some factors
+# Define and re-level some factors
 tmp$traveltime <- factor(student_math$traveltime, levels = c("1","2","3","4"), labels = c("1","2","3","3")) # too few "4"
 tmp$studytime <- as.factor(student_math$studytime)
-tmp$freetime <- as.factor(student_math$freetime)
 tmp$failures <- factor(student_math$failures, levels = c("0","1","2","3"), labels = c("0","1","2","2"))
-tmp$famrel <- factor(student_math$famrel, levels = c("1","2","3","4","5"), labels = c("2","2","3","4","5"))
-tmp$goout <- as.factor(student_math$goout)
+tmp$freetime <- as.factor(student_math$freetime)
+tmp$Mjob[tmp$Mjob == "other"] <- "aaa" # rename to make "other the first contrast
+tmp$Fjob[tmp$Fjob == "other"] <- "aaa" # rename to make "other the first contrast
+tmp$reason[tmp$reason == "other"] <- "aaa" # rename to make "other the first contrast
+tmp$guardian[tmp$guardian == "other"] <- "aaa" # rename to make "other the first contrast
 
 # Scale numerical variables
-# tmp$age <- scale(student_math$age)
-# tmp$absences <- scale(student_math$absences)
-# tmp$G1 <- scale(student_math$G1)
-# tmp$G2 <- scale(student_math$G2)
-# tmp$G3 <- scale(student_math$G3)
+tmp$age <- scale(student_math$age)
+tmp$famrel <- scale(student_math$famrel)
+tmp$absences <- scale(student_math$absences)
+tmp$goout <- scale(student_math$goout)
+tmp$G1 <- scale(student_math$G1)
+tmp$G2 <- scale(student_math$G2)
+tmp$G3 <- scale(student_math$G3)
+
+# Define the design matrix
+x <- model.matrix(~., tmp)
+x <- x[,!grepl("Intercept",colnames(x))] # remove intercept
 
 # Save the data frame
-student <- as.data.frame(cbind(y,tmp))
+student <- as.data.frame(cbind(y,x))
 colnames(student)[1] <- "alc"
 usethis::use_data(student, overwrite = TRUE)

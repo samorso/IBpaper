@@ -5,37 +5,53 @@
 \alias{student}
 \title{Students' Alcohol Consumption}
 \format{
-A data frame with 395 observations on twenty nine variables:
+A data frame with 395 observations on fourty five variables:
 \describe{
-\item{\code{alc}}{student's alcohol consumption (0 = low, 1 = high)}
-\item{\code{school}}{student's school}
-\item{\code{sex}}{student's gender}
-\item{\code{age}}{student's age}
-\item{\code{address}}{student's home address type (U = urban or R = rural)}
-\item{\code{famsize}}{family size (LE3 = lower or equal to 3 or GT3 = greater than 3)}
-\item{\code{Pstatus}}{parent's cohabitation status}
-\item{\code{Mjob}}{mother's areas of professional activity}
-\item{\code{Fjob}}{father's areas of professional activity}
-\item{\code{reason}}{reason for chosing this school}
-\item{\code{guardian}}{student's guardian}
-\item{\code{traveltime}}{home to school travel time (1 = less than 15 min, 2 = 15 to 30 min, 3 = more than 30 min)}
-\item{\code{studytime}}{weekly study time (1 = less than 2 hours, 2 = between 2 to 5 hours, 3 = between 5 to 10 hours, 4 = more than 10 hours)}
-\item{\code{failures}}{number of past class failures (2 = two or more)}
-\item{\code{schoolsup}}{extra educational school support}
-\item{\code{famsup}}{family educational support}
-\item{\code{paid}}{extra paid classes}
-\item{\code{activities}}{extra-curricular activities}
-\item{\code{nursery}}{attended nursery school}
-\item{\code{higher}}{willing to take higher education}
-\item{\code{internet}}{Internet access at home}
-\item{\code{romantic}}{involved in a romantic relationship}
-\item{\code{famrel}}{quality of family relationship (from 2=bad to 5=excellent)}
-\item{\code{freetime}}{free time after school (from 1=very low to 5=very high)}
-\item{\code{goout}}{going out with friends (from 1=very low to 5=very high)}
-\item{\code{absences}}{number of school absences}
-\item{\code{G1}}{first period grade (from 0 to 20)}
-\item{\code{G2}}{second period grade (from 0 to 20)}
-\item{\code{G3}}{final period grade (from 0 to 20)}
+\item{\code{alc}}{student's alcohol consumption (binary: 0 = low, 1 = high)}
+\item{\code{schoolMS}}{student's school (binary: 0 = Gabriel Pereira, 1 = Mousinho da Silveira)}
+\item{\code{sexM}}{student's gender (binary: 0 = female, 1 = male)}
+\item{\code{age}}{standardized student's age}
+\item{\code{addressU}}{student's home address type (binary: 0 = rural, 1 = urban)}
+\item{\code{famsizeLE3}}{family size (binary: 0 = greater than 3, 1 = lower or equal to 3)}
+\item{\code{PstatusT}}{parent's cohabitation status (binary: 0 = living apart, 1 = living together)}
+\item{\code{Mjobat_home}}{mother's areas of professional activity (binary: 0 = others, 1 = at home)}
+\item{\code{Mjobhealth}}{mother's areas of professional activity (binary: 0 = others, 1 = health care related)}
+\item{\code{Mjobservices}}{mother's areas of professional activity (binary: 0 = others, 1 = public services)}
+\item{\code{Mjobteacher}}{mother's areas of professional activity (binary: 0 = others, 1 = teacher)}
+\item{\code{Fjobat_home}}{father's areas of professional activity (binary: 0 = others, 1 = at home)}
+\item{\code{Fjobhealth}}{father's areas of professional activity (binary: 0 = others, 1 = health care related)}
+\item{\code{Fjobservices}}{father's areas of professional activity (binary: 0 = others, 1 = public services)}
+\item{\code{Fjobteacher}}{father's areas of professional activity (binary: 0 = others, 1 = teacher)}
+\item{\code{reasoncourse}}{reason for choosing the school (binary: 0 = others, 1 = course preference)}
+\item{\code{reasonhome}}{reason for choosing the school (binary: 0 = others, 1 = close to home)}
+\item{\code{reasonreputation}}{reason for choosing the school (binary: 0 = others, 1 = school reputation)}
+\item{\code{guardianfather}}{student's guardian (binary: 0 = others, 1 = father)}
+\item{\code{guardianmother}}{student's guardian (binary: 0 = others, 1 = mother)}
+\item{\code{traveltime2}}{home to school travel time (binary: 0 = others, 1 = 15 to 30 min)}
+\item{\code{traveltime3}}{home to school travel time (binary: 0 = others, 1 = more than 30 min)}
+\item{\code{studytime2}}{weekly study time (binary: 0 = others, 1 = between 2 to 5 hours)}
+\item{\code{studytime3}}{weekly study time (binary: 0 = others, 1 = between 5 to 10 hours)}
+\item{\code{studytime4}}{weekly study time (binary: 0 = others, 1 = more than 10 hours)}
+\item{\code{failures1}}{number of past class failures (binary: 0 = others, 1 = one)}
+\item{\code{failures2}}{number of past class failures (binary: 0 = others, 1 = two or more)}
+\item{\code{schoolsupyes}}{extra educational school support (binary: 0 = no, 1 = yes)}
+\item{\code{famsupyes}}{family educational support (binary: 0 = no, 1 = yes)}
+\item{\code{paidyes}}{extra paid classes (binary: 0 = no, 1 = yes)}
+\item{\code{activitiesyes}}{extra-curricular activities (binary: 0 = no, 1 = yes)}
+\item{\code{nurseryyes}}{attended nursery school (binary: 0 = no, 1 = yes)}
+\item{\code{higheryes}}{willing to take higher education (binary: 0 = no, 1 = yes)}
+\item{\code{internetyes}}{Internet access at home (binary: 0 = no, 1 = yes)}
+\item{\code{romanticyes}}{involved in a romantic relationship (binary: 0 = no, 1 = yes)}
+\item{\code{famrel}}{standardized quality of family relationship (original data from 1 to 5)}
+\item{\code{freetime2}}{free time after school (binary: 0 = others, 1 = low)}
+\item{\code{freetime3}}{free time after school (binary: 0 = others, 1 = medium)}
+\item{\code{freetime4}}{free time after school (binary: 0 = others, 1 = high)}
+\item{\code{freetime5}}{free time after school (binary: 0 = others, 1 = very high)}
+\item{\code{goout}}{standardized going out with friends variable (original data from 1 to 5)}
+\item{\code{absences}}{standardized number of school absences (original data from 0 to 75)}
+\item{\code{G1}}{standardized first period grade (original data from 3 to 19)}
+\item{\code{G2}}{standardized second period grade (original data from 0 to 19)}
+\item{\code{G3}}{standardized final period grade (original data from 0 to 20)}
 }
 }
 \source{
@@ -50,5 +66,9 @@ two public schools in Portugal. The data comes from two sources:
 school recordings (e.g. grades, number of school absences) and
 self-reporting questionnaires (e.g. workday and weekend alcohol consumptions,
 parents' jobs, quality of family relationships, frequency to go out with friends).
+It was studied first in \insertCite{cortez2008using;textual}{IBpaper}
+}
+\references{
+\insertAllCited{}
 }
 \keyword{datasets}
