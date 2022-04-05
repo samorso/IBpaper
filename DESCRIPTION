@@ -1,11 +1,43 @@
 Package: IBpaper
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Code for the paper "A general approach for simulation-based bias correction in high dimensional settings"
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: c(
+    person("Samuel", "Orso", email="Samuel.Orso@unige.ch", role=c("aut","cre","cph")),
+    person("Stéphane", "Guerrier", role="ctb"),
+    person("Yuming", "Zhang", role="ctb"),
+    person("Mucyo","Karemera", role="cph"),
+    person("Maria-Pia","Victoria-Feser", role="cph"),
+    person("Yanyuan","Ma", role="cph"),
+    person("R Core Team", role="cph"),
+    person("`MASS` Package Team", role="cph"),
+    person("`betareg` Package Team", role="cph")
+    )
+Maintainer: Samuel Orso <Samuel.Orso@unige.ch>
+Depends: R (>= 4.0.0)
+Description: Implementation for the paper 
+    "A general approach for simulation-based bias correction in high dimensional settings".
+Imports:
+    betareg,
+    Formula,
+    ib (>= 0.2),
+    MASS,
+    Matrix,
+    methods,
+    Rcpp,
+    RcppNumerical,
+    Rdpack (>= 0.7),
+    stats,
+    utils
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+License: GPL (>= 2) 
 Encoding: UTF-8
 LazyData: true
+RdMacros: Rdpack
+URL: https://github.com/samorso/IBpaper
+BugReports: https://github.com/samorso/IBpaper/issues/
+LinkingTo: BH (>= 1.75), Rcpp, RcppEigen (>= 0.3.3.9), RcppNumerical
+RoxygenNote: 7.1.2

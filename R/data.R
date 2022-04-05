@@ -1,0 +1,43 @@
+#' Students' Alcohol Consumption
+#'
+#' Data collected during the 2005-2006 school year from
+#' two public schools in Portugal. The data comes from two sources:
+#' school recordings (e.g. grades, number of school absences) and
+#' self-reporting questionnaires (e.g. workday and weekend alcohol consumptions,
+#' parents' jobs, quality of family relationships, frequency to go out with friends).
+#'
+#' @format A data frame with 395 observations on twenty nine variables:
+#' \describe{
+#' \item{\code{alc}}{student's alcohol consumption (0 = low, 1 = high)}
+#' \item{\code{school}}{student's school}
+#' \item{\code{sex}}{student's gender}
+#' \item{\code{age}}{student's age}
+#' \item{\code{address}}{student's home address type (U = urban or R = rural)}
+#' \item{\code{famsize}}{family size (LE3 = lower or equal to 3 or GT3 = greater than 3)}
+#' \item{\code{Pstatus}}{parent's cohabitation status}
+#' \item{\code{Mjob}}{mother's areas of professional activity}
+#' \item{\code{Fjob}}{father's areas of professional activity}
+#' \item{\code{reason}}{reason for chosing this school}
+#' \item{\code{guardian}}{student's guardian}
+#' \item{\code{traveltime}}{home to school travel time (1 = less than 15 min, 2 = 15 to 30 min, 3 = more than 30 min)}
+#' \item{\code{studytime}}{weekly study time (1 = less than 2 hours, 2 = between 2 to 5 hours, 3 = between 5 to 10 hours, 4 = more than 10 hours)}
+#' \item{\code{failures}}{number of past class failures (2 = two or more)}
+#' \item{\code{schoolsup}}{extra educational school support}
+#' \item{\code{famsup}}{family educational support}
+#' \item{\code{paid}}{extra paid classes}
+#' \item{\code{activities}}{extra-curricular activities}
+#' \item{\code{nursery}}{attended nursery school}
+#' \item{\code{higher}}{willing to take higher education}
+#' \item{\code{internet}}{Internet access at home}
+#' \item{\code{romantic}}{involved in a romantic relationship}
+#' \item{\code{famrel}}{quality of family relationship (from 2=bad to 5=excellent)}
+#' \item{\code{freetime}}{free time after school (from 1=very low to 5=very high)}
+#' \item{\code{goout}}{going out with friends (from 1=very low to 5=very high)}
+#' \item{\code{absences}}{number of school absences}
+#' \item{\code{G1}}{first period grade (from 0 to 20)}
+#' \item{\code{G2}}{second period grade (from 0 to 20)}
+#' \item{\code{G3}}{final period grade (from 0 to 20)}
+#' }
+#'
+#' @source \url{https://pcortez.dsi.uminho.pt/}
+"student"
