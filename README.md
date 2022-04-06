@@ -29,14 +29,15 @@ install.packages(c("betareg", "BH", "MASS", "Rcpp", "RcppEigen", "RcppNumerical"
 ```
 
 ## Usage 
-We essentially provides code for running simulation for logistic,
-negative binomial and beta regressions with different assumptions on the data generating process, and data for a case study.
+We essentially provide code for running simulation for logistic,
+negative binomial and beta regressions with different assumptions on the data generating process, and a dataset for a case study.
 
 Here is a simple way to run a simulation for a logistic regression:
 ``` r
 library(IBpaper)
 library(ib)
 
+set.seed(6)
 x <- matrix(rnorm(300), ncol = 3) # design matrix
 beta <- 1:4 # regression coefficients
 logistic_object <- make_logistic(x, beta) # see ?`make_logistic`
@@ -44,16 +45,15 @@ y <- simulation(logistic_object) # from `ib` package
 
 fit_mle <- glm(y ~ x, family = binomial(link = "logit")) # fit logistic regression
 fit_jini <- ib(fit_mle, control=list(H=200, verbose=TRUE)) # iterative bootstrap procedure from `ib` package
-results <- cbind(coef(fit_mle),coef(fit_jini))
-colnames(results) <- c("MLE","JINI")
+results <- data.frame(MLE = coef(fit_mle), JINI = coef(fit_jini), "True parameter" = beta, check.names = FALSE)
 results
 ```
 
 ``` r
-                 MLE     JINI
-(Intercept) 1.294089 1.062380
-x1          2.309151 1.952350
-x2          3.793111 3.045767
-x3          5.045143 4.091039
+            MLE  JINI True parameter
+(Intercept) 1.06 0.87 1.00
+x1          2.74 2.34 2.00
+x2          3.42 2.95 3.00
+x3          4.52 3.89 4.00
 ```
 
