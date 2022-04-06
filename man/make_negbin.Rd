@@ -2,12 +2,12 @@
 % Please edit documentation in R/make.R
 \name{make_negbin}
 \alias{make_negbin}
-\title{Construct an `negbin` object for logistic regression with predefined coefficients}
+\title{Construct a `negbin` object for negative binomial regression with predefined coefficients}
 \usage{
 make_negbin(x, coefficients, theta)
 }
 \arguments{
-\item{x}{n x p design matrix}
+\item{x}{n x p design matrix (no intercept)}
 
 \item{coefficients}{p+1 vector of coefficients, the first coefficient is the intercept.}
 
@@ -16,7 +16,7 @@ make_negbin(x, coefficients, theta)
 \description{
 It creates an object of class \code{negbin} from \code{MASS} package,
 as one would obtain when fitting a negative binomial regression, but here there is no
-fit, one simply provide a design matrix and coefficients. This function is
+fit, one simply provides a design matrix and coefficients. This function is
 particularly useful in conjunction with \code{simulation} method from the
 \code{ib} package to simulate from this model.
 }

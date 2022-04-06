@@ -66,7 +66,7 @@ two public schools in Portugal. The data comes from two sources:
 school recordings (e.g. grades, number of school absences) and
 self-reporting questionnaires (e.g. workday and weekend alcohol consumptions,
 parents' jobs, quality of family relationships, frequency to go out with friends).
-It was studied first in \insertCite{cortez2008using;textual}{IBpaper}
+It was studied first in \insertCite{cortez2008using;textual}{IBpaper}.
 }
 \references{
 \insertAllCited{}

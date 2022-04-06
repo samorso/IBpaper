@@ -2,19 +2,19 @@
 % Please edit documentation in R/make.R
 \name{make_logistic}
 \alias{make_logistic}
-\title{Construct an `glm` object for logistic regression with predefined coefficients}
+\title{Construct a `glm` object for logistic regression with predefined coefficients}
 \usage{
 make_logistic(x, coefficients)
 }
 \arguments{
-\item{x}{n x p design matrix}
+\item{x}{n x p design matrix (no intercept)}
 
 \item{coefficients}{p+1 vector of coefficients, the first coefficient is the intercept.}
 }
 \description{
 It creates an object of class \code{glm} with \code{family=binomial(link = "logit")},
 as one would obtain when fitting a logistic regression, but here there is no
-fit, one simply provide a design matrix and coefficients. This function is
+fit, one simply provides a design matrix and coefficients. This function is
 particularly useful in conjunction with \code{simulation} method from the
 \code{ib} package to simulate from this model.
 }

@@ -2,20 +2,20 @@
 % Please edit documentation in R/make.R
 \name{make_betareg}
 \alias{make_betareg}
-\title{Construct an `betareg` object for beta regression with predefined coefficients}
+\title{Construct a `betareg` object for beta regression with predefined coefficients}
 \usage{
 make_betareg(x, coefficients)
 }
 \arguments{
-\item{x}{n x p design matrix}
+\item{x}{n x p design matrix (no intercept)}
 
 \item{coefficients}{p+2 vector of coefficients, the first coefficient is the intercept,
-the last coefficient is the the precision parameter.}
+the last coefficient is the precision parameter.}
 }
 \description{
 It creates an object of class \code{betareg} from \code{betareg} package,
 as one would obtain when fitting a beta regression, but here there is no
-fit, one simply provide a design matrix and coefficients. This function is
+fit, one simply provides a design matrix and coefficients. This function is
 particularly useful in conjunction with \code{simulation} method from the
 \code{ib} package to simulate from this model.
 }
