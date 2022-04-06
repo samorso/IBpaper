@@ -15,10 +15,10 @@ tmp$traveltime <- factor(student_math$traveltime, levels = c("1","2","3","4"), l
 tmp$studytime <- as.factor(student_math$studytime)
 tmp$failures <- factor(student_math$failures, levels = c("0","1","2","3"), labels = c("0","1","2","2"))
 tmp$freetime <- as.factor(student_math$freetime)
-tmp$Mjob[tmp$Mjob == "other"] <- "aaa" # rename to make "other the first contrast
-tmp$Fjob[tmp$Fjob == "other"] <- "aaa" # rename to make "other the first contrast
-tmp$reason[tmp$reason == "other"] <- "aaa" # rename to make "other the first contrast
-tmp$guardian[tmp$guardian == "other"] <- "aaa" # rename to make "other the first contrast
+tmp$Mjob[tmp$Mjob == "other"] <- "aaa" # rename to make "other" the first contrast
+tmp$Fjob[tmp$Fjob == "other"] <- "aaa" # rename to make "other" the first contrast
+tmp$reason[tmp$reason == "other"] <- "aaa" # rename to make "other" the first contrast
+tmp$guardian[tmp$guardian == "other"] <- "aaa" # rename to make "other" the first contrast
 
 # Scale numerical variables
 tmp$age <- scale(student_math$age)
