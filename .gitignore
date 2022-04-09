@@ -38,3 +38,7 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 docs
+inst/doc
+
+# Temporary files
+.tmp/
