@@ -1,0 +1,192 @@
+---
+title: "Case study"
+output: rmarkdown::html_vignette
+bibliography: ../inst/REFERENCES.bib
+date: "`r Sys.Date()`"
+vignette: >
+  %\VignetteIndexEntry{Case study}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE,
+  cache = FALSE
+)
+```
+
+We present the case study on Alcohol Consumption of our paper @guerrier2020general. The data is made available in the package, see `?data(student)`. It was originally studied by @cortez2008using. We suppose that the binary reponse `alc` follow a logistic regression model with a misclassified response assuming 5\% of false negative rate. We warn the reader that the code presented here may take a very long time to run on their personal computer. Indeed, for the paper, the computations were performed at University of Geneva on "Baobab" and "Yggdrasil" HPC clusters. 
+
+## Setting
+We first define some functions.
+
+```{r setting}
+# packages
+library(IBpaper)
+library(ib)
+
+# for simulating logistic with misclassified response
+misclassification <- function(object, control, extra){
+  ftd <- fitted(object)
+  n <- length(ftd)
+  N <- n * control$H
+  u1 <- 0.0
+  u2 <- 0.05
+  mu_star <- u1 * (1 - rep(ftd,control$H)) + (1 - u2) * rep(ftd,control$H)
+  matrix(ifelse(runif(N) > mu_star,0,1), ncol=control$H)
+}
+
+# Verify where a value lies given a confidence interval
+check_ci <- function(ci,theta){
+  if(!is.matrix(ci)) ci <- as.matrix(ci)
+  if(ncol(ci)!=2) ci <- t(ci)
+  if(nrow(ci)!=length(theta)) stop("verify ci and theta dimensions match")
+  apply(cbind(ci,theta), 1, function(x){
+    if(x[3] <= min(x[1:2])){"left"}
+    else if(x[3] >= max(x[1:2])){"right"}else{"center"}
+  })
+}
+
+# IB specifics
+H <- 200 # number of simulated estimators
+ib_control <- ibControl(H = H, sim = misclassification, maxit = 100L) # control for iterative bootstrap (IB)
+B <- 200 # number of bootstrap replicates
+set.seed(432)
+seeds <- sample.int(1e7,B) # seeds for bootstrap
+
+# For coverage
+alpha <- 0.05 # nominal level for confidence interval
+```
+
+## Real data analysis
+The code for the real data analysis is the following:
+
+```{r real data}
+## Fit initial estimator
+fit_initial <- glm(alc ~ ., family = binomial(link = "logit"), 
+                   data = student)
+
+## Fit the MLE
+x <- as.matrix(student[,-1])
+y <- student[,1]
+fit_mle <- logistic_misclassification_mle(x, y, fp = 0, fn = 0.05)
+
+## Fit the JINI
+fit_ib <- ib(fit_initial, control = ib_control)
+
+## Retrieve coefficients
+beta_hat <- fit_mle
+beta_tilde <- coef(fit_ib)
+p <- length(beta_hat)
+
+## Standard errors for the MLE (based on Fisher information)
+se1 <- sqrt(diag(inverse_FIM(x,beta_hat,0.0,0.05)))
+
+## Asymptotic confidence interval for MLE
+ci_mle <- beta_hat + se1 * matrix(rep(qnorm(c(alpha/2,1-alpha/2)),p),nc=2,byr=T)
+
+## Standard errors for the JINI (estimated via bootstrap)
+logistic_object <- make_logistic(x, beta_tilde)
+boot <- matrix(nrow = B, ncol = p)
+for(b in 1:B){
+  ##------- simulate the process ---------
+  # simulate logistic
+  y <- simulation(logistic_object, control=list(seed=b, sim=misclassification))
+
+  ##------ Initial estimation ----------------
+  fit_tmp <- glm(y ~ x, family=binomial(link="logit"))
+
+  ##------ IB bias correction ------------
+  ib_control$seed <- seeds[b] # update seed in control
+  fit_ib <- ib(fit_tmp, control = ib_control)
+  boot[b,] <- getEst(fit_ib)
+}
+
+se2 <- sqrt(diag(cov(boot)))
+
+## Asymptotic confidence interval for JINI
+ci_jini <- beta_tilde + se2 * matrix(rep(qnorm(c(alpha/2,1-alpha/2)),p),nc=2,byr=T)
+```
+
+
+## Numerical study
+For the numerical study, we use `beta_tilde` as the true parameter.
+
+```{r numerical study}
+MC <- 1e4 # number of simulation
+logistic_object <- make_logistic(x, beta_tilde) # for simulating response
+# seed for RNG
+set.seed(5847329)
+seed <- vector("list",3)
+seed$process <- sample.int(1e7,MC)
+seed$ib <- sample.int(1e7,MC)
+seed$boot <- sample.int(1e7,B)
+
+# for saving results
+res <- list(
+  mle = matrix(nrow = MC, ncol = p),
+  lci_mle = matrix(nrow = MC, ncol = p),
+  coverage_mle = matrix(nrow = MC, ncol = p),
+  ib = matrix(nrow = MC, ncol = p),
+  lci_ib = matrix(nrow = MC, ncol = p),
+  coverage_ib = matrix(nrow = MC, ncol = p)
+)
+
+ib_control2 <- ib_control # copy for bootstrap
+
+# Simulations (careful, it is very long)
+for(m in 1:MC){
+  ##------- simulate the process ---------
+  # simulate logistic
+  y <- simulation(logistic_object, 
+                  control = list(seed = seed$process[m], 
+                                 sim = misclassification))
+  
+  ##------ Initial estimation ----------------
+  fit_initial <- glm(y ~ x, family=binomial(link="logit"))
+  
+  ##------ MLE estimation ----------------
+  fit_mle <- logistic_misclassification_mle(x,y,0.0,0.05)
+  beta_hat <- fit_mle
+  ci_mle <- beta_hat - sqrt(diag(inverse_FIM(x,beta_hat,0.0,0.05))) * matrix(rep(qnorm(alpha[2:1]),p),nc=2,byr=T) 
+  res$mle[m,] <- beta_hat
+  res$lci_mle[m,] <- apply(ci_mle,1,diff)
+  res$coverage_mle[m,] <- check_ci(ci_mle,beta)
+  
+  ##------ IB bias correction ------------
+  ib_control$seed <- seed$ib[m]
+  fit_ib <- ib(fit_initial, control = ib_control)
+  beta_tilde <- getEst(fit_ib)
+  
+  # bootstrap approximation of covariance
+  lo <- make_logistic(x, beta_tilde)
+  boot <- matrix(nrow = B, ncol = p)
+  for(b in 1:B){
+    ##------- simulate the process ---------
+    # simulate logistic
+    y <- simulation(lo, control=list(seed=b, sim=misclassification))
+    
+    ##------ MLE estimation ----------------
+    fit_tmp <- glm(y~x, family=binomial(link="logit"))
+    
+    ##------ IB bias correction ------------
+    ib_control2$seed <- seed$boot[b]
+    fit_ib <- ib(fit_tmp, control = ib_control2)
+    boot[b,] <- getEst(fit_ib)
+  }
+  se2 <- sqrt(diag(cov(boot)))
+  ci_ib <- beta_tilde - se2 * matrix(rep(qnorm(alpha[2:1]),p),nc=2,byr=T) 
+  res$ib[m,] <- beta_tilde
+  res$lci_ib[m,] <- apply(ci_ib,1,diff)
+  res$coverage_ib[m,] <- check_ci(ci_ib,beta)
+  
+  cat(m,"\n")
+}
+```
+
+
+
+## References
