@@ -1,6 +1,9 @@
 pandoc: 2.7.3
 pkgdown: 2.0.2
 pkgdown_sha: ~
-articles: {}
-last_built: 2022-04-06T12:55Z
+articles:
+  betareg: betareg.html
+  logistic: logistic.html
+  negbin: negbin.html
+last_built: 2022-04-09T13:11Z
 
