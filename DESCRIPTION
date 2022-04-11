@@ -4,11 +4,11 @@ Title: Code for the paper "A general approach for simulation-based bias correcti
 Version: 0.1.0
 Authors@R: c(
     person("Samuel", "Orso", email="Samuel.Orso@unige.ch", role=c("aut","cre","cph")),
-    person("Stéphane", "Guerrier", role="ctb"),
-    person("Yuming", "Zhang", role="ctb"),
-    person("Mucyo","Karemera", role="cph"),
-    person("Maria-Pia","Victoria-Feser", role="cph"),
-    person("Yanyuan","Ma", role="cph"),
+    person("Stéphane", "Guerrier", role=c("aut","ctb")),
+    person("Yuming", "Zhang", role=c("aut","ctb")),
+    person("Yanyuan","Ma", role="aut"),
+    person("Mucyo","Karemera", role="aut"),
+    person("Maria-Pia","Victoria-Feser", role="aut"),
     person("R Core Team", role="cph"),
     person("`MASS` Package Team", role="cph"),
     person("`betareg` Package Team", role="cph")
