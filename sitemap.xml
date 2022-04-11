@@ -4,19 +4,19 @@
     <loc>/404.html</loc>
   </url>
   <url>
-    <loc>/articles/betareg.html</loc>
+    <loc>/articles/1_logistic.html</loc>
   </url>
   <url>
-    <loc>/articles/case_study.html</loc>
+    <loc>/articles/2_betareg.html</loc>
+  </url>
+  <url>
+    <loc>/articles/3_negbin.html</loc>
+  </url>
+  <url>
+    <loc>/articles/4_case_study.html</loc>
   </url>
   <url>
     <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/articles/logistic.html</loc>
-  </url>
-  <url>
-    <loc>/articles/negbin.html</loc>
   </url>
   <url>
     <loc>/authors.html</loc>
@@ -55,7 +55,7 @@
     <loc>/reference/nll_max_beta.html</loc>
   </url>
   <url>
-    <loc>/reference/nll_max_sigma.html</loc>
+    <loc>/reference/nll_max_phi.html</loc>
   </url>
   <url>
     <loc>/reference/par_bootstrap_mle.html</loc>

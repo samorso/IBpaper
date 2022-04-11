@@ -2,9 +2,9 @@ pandoc: 2.7.3
 pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
-  betareg: betareg.html
-  case_study: case_study.html
-  logistic: logistic.html
-  negbin: negbin.html
-last_built: 2022-04-11T15:46Z
+  1_logistic: 1_logistic.html
+  2_betareg: 2_betareg.html
+  3_negbin: 3_negbin.html
+  4_case_study: 4_case_study.html
+last_built: 2022-04-11T17:57Z
 
