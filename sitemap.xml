@@ -52,10 +52,10 @@
     <loc>/reference/make_negbin.html</loc>
   </url>
   <url>
-    <loc>/reference/nll_max_beta.html</loc>
+    <loc>/reference/nll_max_alpha.html</loc>
   </url>
   <url>
-    <loc>/reference/nll_max_phi.html</loc>
+    <loc>/reference/nll_max_beta.html</loc>
   </url>
   <url>
     <loc>/reference/par_bootstrap_mle.html</loc>
