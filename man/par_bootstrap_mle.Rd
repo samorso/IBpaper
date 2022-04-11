@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{par_bootstrap_mle}
 \alias{par_bootstrap_mle}
-\title{Parametric bootstrap for logistic regression (with misclassified responses)}
+\title{Parametric bootstrap for logistic regression with misclassified responses}
 \usage{
 par_bootstrap_mle(beta, x, B, seed, ncores, fp = 0, fn = 0)
 }
@@ -22,5 +22,5 @@ par_bootstrap_mle(beta, x, B, seed, ncores, fp = 0, fn = 0)
 \item{fn}{false negative rate}
 }
 \description{
-Parametric bootstrap for logistic regression (with misclassified responses)
+Parametric bootstrap for logistic regression with misclassified responses
 }

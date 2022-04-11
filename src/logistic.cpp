@@ -223,7 +223,7 @@ Eigen::ArrayXd r_logistic(
   return y;
 }
 
-//' Parametric bootstrap for logistic regression (with misclassified responses)
+//' Parametric bootstrap for logistic regression with misclassified responses
 //'
 //' @param beta a p-vector of parameter
 //' @param x a n x p design matrix

@@ -4,12 +4,12 @@
 \alias{nll_max_beta}
 \title{Negative log-likelihood for beta coefficients (negative binomial regression)}
 \usage{
-nll_max_beta(beta, phi, y, x, lambda)
+nll_max_beta(beta, alpha, y, x, lambda)
 }
 \arguments{
 \item{beta}{a p-vector of coefficients}
 
-\item{phi}{parameter of negative binomial}
+\item{alpha}{parameter of negative binomial}
 
 \item{y}{a n-vector of response}
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/glm_negbin.R
 \name{glm_negbin}
 \alias{glm_negbin}
-\title{Function to compute MLE for negative binomial with interfered responses}
+\title{MLE for negative binomial with interfered responses}
 \usage{
 glm_negbin(y, x, lambda, maxit = 50L, epsilon = 1e-07, trace = FALSE)
 }

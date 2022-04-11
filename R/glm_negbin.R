@@ -1,4 +1,4 @@
-#' @title Function to compute MLE for negative binomial with interfered responses
+#' @title MLE for negative binomial with interfered responses
 #' @description
 #' Implementation of the MLE for negative binomial regression
 #' with interfered responses: one observes \eqn{\max(y_i,z_i)},

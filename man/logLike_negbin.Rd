@@ -4,12 +4,12 @@
 \alias{logLike_negbin}
 \title{Log-likelihood for negative binomial with interfered responses}
 \usage{
-logLike_negbin(beta, phi, y, x, lambda)
+logLike_negbin(beta, alpha, y, x, lambda)
 }
 \arguments{
 \item{beta}{a p-vector of coefficients}
 
-\item{phi}{parameter of negative binomial}
+\item{alpha}{overdispersion parameter of negative binomial}
 
 \item{y}{a n-vector of response}
 
