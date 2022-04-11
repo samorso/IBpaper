@@ -6,10 +6,9 @@
 
 ## Overview 
 
-The purpose of this package is to share the code my co-authors and myself used for our paper [Guerrier et
-al (2020)](https://arxiv.org/pdf/2002.08757.pdf).
+This package contains the code we use for the simulations and real data analysis in the paper [Guerrier et al (2020)](https://arxiv.org/pdf/2002.08757.pdf).
 
-In order to install the package:
+To install this package:
 
 ``` r
 ## if not installed
@@ -24,15 +23,15 @@ install.packages("ib")
 ```
 
 You also need the following packages:
+
 ``` r
 install.packages(c("betareg", "BH", "MASS", "Rcpp", "RcppEigen", "RcppNumerical"))
 ```
 
 ## Usage 
-We essentially provide code for running simulation for logistic,
-negative binomial and beta regressions with different assumptions on the data generating process, and a dataset for a case study.
 
-Here is a simple way to run a simulation for a logistic regression:
+Here is a simple example to run a simulation for a logistic regression:
+
 ``` r
 library(IBpaper)
 library(ib)
@@ -57,3 +56,4 @@ x2          3.42 2.95 3.00
 x3          4.52 3.89 4.00
 ```
 
+The detailed code to run the simulations and real data analysis in the paper [Guerrier et al (2020)](https://arxiv.org/pdf/2002.08757.pdf) can be found in [this link](https://samorso.github.io/IBpaper/). 

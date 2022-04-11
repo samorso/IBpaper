@@ -1,5 +1,5 @@
 ---
-title: "Logistic regression"
+title: "Logistic Regression"
 output: rmarkdown::html_vignette
 bibliography: ../inst/REFERENCES.bib
 date: "`r Sys.Date()`"
@@ -18,10 +18,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-We present how to perform the simulation studies in @guerrier2020general for logistic regression. We warn the reader that the code presented here may take a very long time to run on their personal computer. Indeed, for the paper, the computations were performed at University of Geneva on "Baobab" and "Yggdrasil" HPC clusters. We present the regular logistic regression and the logistic regression with misclassification. 
+Here we present how to perform the simulation studies in @guerrier2020general for the logistic regression, with and without misclassification. We warn the readers that the code presented here may take time to run on a personal computer. Indeed, for the paper, the computations were performed on the "Baobab" and "Yggdrasil" HPC clusters provided by the University of Geneva. 
 
 ## Setting
-Some of the setting's parameters are common to both situations.
+
+We use the following setting for the logistic regression, with and without rounding.
 
 ```{r setting}
 # packages
@@ -52,8 +53,9 @@ ib_control <- ibControl(H=H, maxit=50L) # control for iterative bootstrap (IB)
 ```
 
 
-## Regular logistic regression
-Here is the code for the simulation of logistic regression:
+## Logistic regression without misclassification 
+
+Here is the code for the simulation of the logistic regression computed on the actual responses without misclassification. 
 
 ```{r regular logistic}
 # For saving the results
@@ -92,7 +94,9 @@ for(m in 1:MC){
 ```
 
 ## Logistic regression with misclassified responses
-We need first to consider the "misclassification process". For that, we need to specify how to generate misclassified responses:
+
+We first need to specify the misclassification mechanism, i.e. how the responses are misclassified. 
+
 ```{r misclassification}
 # Random misclassification:
 # False Positive (FP) follows rbeta(1.5,50)
@@ -114,6 +118,8 @@ random_misclassification <- function(object, control, extra){
 
 ib_control <- ibControl(H = H, maxit = 50L, sim = random_misclassification) # control for iterative bootstrap (IB)
 ```
+
+Here is the code for the simulation of the logistic regression computed on the misclassified responses. 
 
 ```{r logistic with misclassified responses}
 # For saving the results

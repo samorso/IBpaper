@@ -1,5 +1,5 @@
 ---
-title: "Case study"
+title: "Alcohol Consumption Data Analysis"
 output: rmarkdown::html_vignette
 bibliography: ../inst/REFERENCES.bib
 date: "`r Sys.Date()`"
@@ -18,10 +18,10 @@ knitr::opts_chunk$set(
 )
 ```
 
-We present the case study on Alcohol Consumption of our paper @guerrier2020general. The data is made available in the package, see `?data(student)`. It was originally studied by @cortez2008using. We suppose that the binary reponse `alc` follow a logistic regression model with a misclassified response assuming 5\% of false negative rate. We warn the reader that the code presented here may take a very long time to run on their personal computer. Indeed, for the paper, the computations were performed at University of Geneva on "Baobab" and "Yggdrasil" HPC clusters. 
+Here we present the analysis on the alcohol consumption real data in @guerrier2020general. The data is made available in the package, see `?data(student)`. This dataset was originally collected and studied by @cortez2008using. In this analysis, we suppose that the binary response `alc` is subject to a false negative rate of 5\%. We warn the readers that the code presented here may take time to run on a personal computer. Indeed, for the paper, the computations were performed on the "Baobab" and "Yggdrasil" HPC clusters provided by the University of Geneva. 
+ 
 
 ## Setting
-We first define some functions.
 
 ```{r setting}
 # packages
@@ -62,7 +62,8 @@ alpha <- 0.05 # nominal level for confidence interval
 ```
 
 ## Real data analysis
-The code for the real data analysis is the following:
+
+The code for the analysis on the real data is provided as follows.
 
 ```{r real data}
 ## Fit initial estimator
@@ -112,8 +113,9 @@ ci_jini <- beta_tilde + se2 * matrix(rep(qnorm(c(alpha/2,1-alpha/2)),p),nc=2,byr
 ```
 
 
-## Numerical study
-For the numerical study, we use `beta_tilde` as the true parameter.
+## Numerical experiment
+
+For the numerical experiment, we use `beta_tilde` from the real data analysis as the true parameter.
 
 ```{r numerical study}
 MC <- 1e4 # number of simulation

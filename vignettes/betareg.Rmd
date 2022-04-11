@@ -1,5 +1,5 @@
 ---
-title: "Beta regression"
+title: "Beta Regression"
 output: rmarkdown::html_vignette
 bibliography: ../inst/REFERENCES.bib
 date: "`r Sys.Date()`"
@@ -18,10 +18,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-We present how to perform the simulation studies in @guerrier2020general for beta regression. We warn the reader that the code presented here may take a very long time to run on their personal computer. Indeed, for the paper, the computations were performed at University of Geneva on "Baobab" and "Yggdrasil" HPC clusters. We present the regular beta regression and the beta regression with rounded responses. 
+Here we present how to perform the simulation studies in @guerrier2020general for the beta regression, with and without rounding. We warn the readers that the code presented here may take time to run on a personal computer. Indeed, for the paper, the computations were performed on the "Baobab" and "Yggdrasil" HPC clusters provided by the University of Geneva. 
 
 ## Setting
-Some of the setting's parameters are common to both situations.
+
+We use the following setting for the beta regression, with and without rounding.
 
 ```{r setting}
 # packages
@@ -55,8 +56,9 @@ ib_control <- ibControl(H=H, maxit=50L, constraint=FALSE) # control for iterativ
 ```
 
 
-## Regular beta regression
-Here is the code for the simulation of beta regression:
+## Beta regression without rounding
+
+Here is the code for the simulation of the beta regression computed on the actual responses without rounding. 
 
 ```{r regular beta}
 # For saving the results
@@ -97,7 +99,9 @@ for(m in 1:MC){
 ```
 
 ## Beta regression with rounded responses
-We need first to specify the "rounding process". For that, we need to specify how to generate rounded responses:
+
+We first need to specify the rounding mechanism, i.e. how the responses are rounded. 
+
 ```{r interference}
 # Function to simulate responses with rounding
 # see ?ib::simulation and ?ib::control for more details 
@@ -111,6 +115,8 @@ rounding <- function(object, control, extra=NULL){
 }
 ib_control <- ibControl(H = H, maxit = 50L, sim = rounding) # control for iterative bootstrap (IB)
 ```
+
+Here is the code for the simulation of the beta regression computed on the rounded responses. 
 
 ```{r beta regression with rounded responses}
 # For saving the results

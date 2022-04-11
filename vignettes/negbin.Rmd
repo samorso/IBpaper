@@ -1,5 +1,5 @@
 ---
-title: "Negative binomial regression"
+title: "Negative Binomial Regression"
 output: rmarkdown::html_vignette
 bibliography: ../inst/REFERENCES.bib
 date: "`r Sys.Date()`"
@@ -18,10 +18,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-We present how to perform the simulation studies in @guerrier2020general for negative binomial regression. We warn the reader that the code presented here may take a very long time to run on their personal computer. Indeed, for the paper, the computations were performed at University of Geneva on "Baobab" and "Yggdrasil" HPC clusters. We present the regular negative binomial regression and the negative binomial regression with interfered responses. 
+Here we present how to perform the simulation studies in @guerrier2020general for the negative binomial regression, with and without interference. We warn the readers that the code presented here may take time to run on a personal computer. Indeed, for the paper, the computations were performed on the "Baobab" and "Yggdrasil" HPC clusters provided by the University of Geneva. 
 
 ## Setting
-Some of the setting's parameters are common to both situations.
+
+We use the following setting for the negative binomial regression, with and without interference.
 
 ```{r setting}
 # packages
@@ -54,8 +55,9 @@ ib_control <- ibControl(H=H, maxit=50L) # control for iterative bootstrap (IB)
 ```
 
 
-## Regular negative binomial regression
-Here is the code for the simulation of negative binomial regression:
+## Negative binomial regression without interference
+
+Here is the code for the simulation of the negative binomial regression computed on the actual responses without interference. 
 
 ```{r regular negative binomial}
 # For saving the results
@@ -98,7 +100,9 @@ for(m in 1:MC){
 ```
 
 ## Negative binomial regression with interfered responses
-We need first to specify the "interfered process". For that, we need to specify how to generate interfered responses:
+
+We first need to specify the interference mechanism, i.e. how the responses are interfered. 
+
 ```{r interference}
 # Function to simulate interfered responses
 # see ?ib::simulation and ?ib::control for more details 
@@ -111,6 +115,8 @@ random_censoring <- function(object, control, extra=NULL){
 }
 ib_control <- ibControl(H = H, maxit = 50L, sim = random_censoring) # control for iterative bootstrap (IB)
 ```
+
+Here is the code for the simulation of the negative binomial regression computed on the interfered responses. 
 
 ```{r negative binomial regression with interfered responses}
 # For saving the results
