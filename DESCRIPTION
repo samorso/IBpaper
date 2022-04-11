@@ -1,6 +1,6 @@
 Package: IBpaper
 Type: Package
-Title: Code for the paper "A general approach for simulation-based bias correction in high dimensional settings"
+Title: Code for the paper "A Flexible Bias Correction Method based on Inconsistent Estimators"
 Version: 0.1.0
 Authors@R: c(
     person("Samuel", "Orso", email="Samuel.Orso@unige.ch", role=c("aut","cre","cph")),
@@ -15,8 +15,7 @@ Authors@R: c(
     )
 Maintainer: Samuel Orso <Samuel.Orso@unige.ch>
 Depends: R (>= 4.0.0)
-Description: Implementation for the paper 
-    "A general approach for simulation-based bias correction in high dimensional settings".
+Description: This package contains the code to replicate the numerical studies presented in the paper "A Flexible Bias Correction Method based on Inconsistent Estimators".
 Imports:
     betareg,
     Formula,

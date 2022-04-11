@@ -3,9 +3,9 @@
 \docType{data}
 \name{student}
 \alias{student}
-\title{Students' Alcohol Consumption}
+\title{Students' Alcohol Consumption Real Data}
 \format{
-A data frame with 395 observations on fourty five variables:
+A data frame with 395 observations and 45 variables:
 \describe{
 \item{\code{alc}}{student's alcohol consumption (binary: 0 = low, 1 = high)}
 \item{\code{schoolMS}}{student's school (binary: 0 = Gabriel Pereira, 1 = Mousinho da Silveira)}
@@ -66,7 +66,7 @@ two public schools in Portugal. The data comes from two sources:
 school recordings (e.g. grades, number of school absences) and
 self-reporting questionnaires (e.g. workday and weekend alcohol consumptions,
 parents' jobs, quality of family relationships, frequency to go out with friends).
-It was studied first in \insertCite{cortez2008using;textual}{IBpaper}.
+It was originally collected and first studied in \insertCite{cortez2008using;textual}{IBpaper}.
 }
 \references{
 \insertAllCited{}
