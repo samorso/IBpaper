@@ -19,19 +19,19 @@ Description: This package contains the code to replicate the numerical studies p
 Imports:
     betareg,
     Formula,
-    ib (>= 0.2),
     MASS,
-    Matrix,
-    methods,
     Rcpp,
-    RcppNumerical,
     Rdpack (>= 0.7),
     stats,
     utils
 Suggests:
+    ib (>= 0.2),
     testthat (>= 3.0.0),
     knitr,
-    rmarkdown
+    Matrix,
+    methods,
+    rmarkdown,
+    RcppNumerical
 License: GPL (>= 2) 
 Encoding: UTF-8
 LazyData: true
