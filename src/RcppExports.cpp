@@ -73,47 +73,47 @@ BEGIN_RCPP
 END_RCPP
 }
 // nll_max_beta
-double nll_max_beta(const Eigen::VectorXd& beta, const double& sigma, const Eigen::VectorXd& y, const Eigen::MatrixXd& x, const double& lambda);
-RcppExport SEXP _IBpaper_nll_max_beta(SEXP betaSEXP, SEXP sigmaSEXP, SEXP ySEXP, SEXP xSEXP, SEXP lambdaSEXP) {
+double nll_max_beta(const Eigen::VectorXd& beta, const double& phi, const Eigen::VectorXd& y, const Eigen::MatrixXd& x, const double& lambda);
+RcppExport SEXP _IBpaper_nll_max_beta(SEXP betaSEXP, SEXP phiSEXP, SEXP ySEXP, SEXP xSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Eigen::VectorXd& >::type beta(betaSEXP);
-    Rcpp::traits::input_parameter< const double& >::type sigma(sigmaSEXP);
+    Rcpp::traits::input_parameter< const double& >::type phi(phiSEXP);
     Rcpp::traits::input_parameter< const Eigen::VectorXd& >::type y(ySEXP);
     Rcpp::traits::input_parameter< const Eigen::MatrixXd& >::type x(xSEXP);
     Rcpp::traits::input_parameter< const double& >::type lambda(lambdaSEXP);
-    rcpp_result_gen = Rcpp::wrap(nll_max_beta(beta, sigma, y, x, lambda));
+    rcpp_result_gen = Rcpp::wrap(nll_max_beta(beta, phi, y, x, lambda));
     return rcpp_result_gen;
 END_RCPP
 }
-// nll_max_sigma
-double nll_max_sigma(const double& sigma, const Eigen::VectorXd& beta, const Eigen::VectorXd& y, const Eigen::MatrixXd& x, const double& lambda);
-RcppExport SEXP _IBpaper_nll_max_sigma(SEXP sigmaSEXP, SEXP betaSEXP, SEXP ySEXP, SEXP xSEXP, SEXP lambdaSEXP) {
+// nll_max_phi
+double nll_max_phi(const double& phi, const Eigen::VectorXd& beta, const Eigen::VectorXd& y, const Eigen::MatrixXd& x, const double& lambda);
+RcppExport SEXP _IBpaper_nll_max_phi(SEXP phiSEXP, SEXP betaSEXP, SEXP ySEXP, SEXP xSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const double& >::type sigma(sigmaSEXP);
+    Rcpp::traits::input_parameter< const double& >::type phi(phiSEXP);
     Rcpp::traits::input_parameter< const Eigen::VectorXd& >::type beta(betaSEXP);
     Rcpp::traits::input_parameter< const Eigen::VectorXd& >::type y(ySEXP);
     Rcpp::traits::input_parameter< const Eigen::MatrixXd& >::type x(xSEXP);
     Rcpp::traits::input_parameter< const double& >::type lambda(lambdaSEXP);
-    rcpp_result_gen = Rcpp::wrap(nll_max_sigma(sigma, beta, y, x, lambda));
+    rcpp_result_gen = Rcpp::wrap(nll_max_phi(phi, beta, y, x, lambda));
     return rcpp_result_gen;
 END_RCPP
 }
 // logLike_negbin
-double logLike_negbin(const Eigen::VectorXd& beta, const double& sigma, const Eigen::VectorXd& y, const Eigen::MatrixXd& x, const double& lambda);
-RcppExport SEXP _IBpaper_logLike_negbin(SEXP betaSEXP, SEXP sigmaSEXP, SEXP ySEXP, SEXP xSEXP, SEXP lambdaSEXP) {
+double logLike_negbin(const Eigen::VectorXd& beta, const double& phi, const Eigen::VectorXd& y, const Eigen::MatrixXd& x, const double& lambda);
+RcppExport SEXP _IBpaper_logLike_negbin(SEXP betaSEXP, SEXP phiSEXP, SEXP ySEXP, SEXP xSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const Eigen::VectorXd& >::type beta(betaSEXP);
-    Rcpp::traits::input_parameter< const double& >::type sigma(sigmaSEXP);
+    Rcpp::traits::input_parameter< const double& >::type phi(phiSEXP);
     Rcpp::traits::input_parameter< const Eigen::VectorXd& >::type y(ySEXP);
     Rcpp::traits::input_parameter< const Eigen::MatrixXd& >::type x(xSEXP);
     Rcpp::traits::input_parameter< const double& >::type lambda(lambdaSEXP);
-    rcpp_result_gen = Rcpp::wrap(logLike_negbin(beta, sigma, y, x, lambda));
+    rcpp_result_gen = Rcpp::wrap(logLike_negbin(beta, phi, y, x, lambda));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -124,7 +124,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_IBpaper_inverse_FIM", (DL_FUNC) &_IBpaper_inverse_FIM, 4},
     {"_IBpaper_par_bootstrap_mle", (DL_FUNC) &_IBpaper_par_bootstrap_mle, 7},
     {"_IBpaper_nll_max_beta", (DL_FUNC) &_IBpaper_nll_max_beta, 5},
-    {"_IBpaper_nll_max_sigma", (DL_FUNC) &_IBpaper_nll_max_sigma, 5},
+    {"_IBpaper_nll_max_phi", (DL_FUNC) &_IBpaper_nll_max_phi, 5},
     {"_IBpaper_logLike_negbin", (DL_FUNC) &_IBpaper_logLike_negbin, 5},
     {NULL, NULL, 0}
 };

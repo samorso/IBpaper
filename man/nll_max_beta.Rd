@@ -2,14 +2,14 @@
 % Please edit documentation in R/RcppExports.R
 \name{nll_max_beta}
 \alias{nll_max_beta}
-\title{negative log-likelihood for beta coefficients}
+\title{Negative log-likelihood for beta coefficients (negative binomial regression)}
 \usage{
-nll_max_beta(beta, sigma, y, x, lambda)
+nll_max_beta(beta, phi, y, x, lambda)
 }
 \arguments{
 \item{beta}{a p-vector of coefficients}
 
-\item{sigma}{parameter of negative binomial}
+\item{phi}{parameter of negative binomial}
 
 \item{y}{a n-vector of response}
 
@@ -18,5 +18,5 @@ nll_max_beta(beta, sigma, y, x, lambda)
 \item{lambda}{mean of Poisson censoring process}
 }
 \description{
-negative log-likelihood for beta coefficients
+Negative log-likelihood for beta coefficients (negative binomial regression)
 }

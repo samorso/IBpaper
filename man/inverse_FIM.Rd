@@ -2,7 +2,8 @@
 % Please edit documentation in R/RcppExports.R
 \name{inverse_FIM}
 \alias{inverse_FIM}
-\title{Inverse Fisher information Matrix}
+\title{Inverse Fisher information matrix for logistic regression with misclassified
+responses}
 \usage{
 inverse_FIM(x, beta, fp, fn)
 }
@@ -16,5 +17,6 @@ inverse_FIM(x, beta, fp, fn)
 \item{fn}{false negative rate}
 }
 \description{
-Inverse Fisher information Matrix
+Inverse Fisher information matrix for logistic regression with misclassified
+responses
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{logistic_misclassification_mle}
 \alias{logistic_misclassification_mle}
-\title{Logistic regression with misclassification based on MLE}
+\title{MLE for logistic regression with misclassified responses}
 \usage{
 logistic_misclassification_mle(x, y, fp, fn)
 }
@@ -16,5 +16,5 @@ logistic_misclassification_mle(x, y, fp, fn)
 \item{fn}{false negative rate}
 }
 \description{
-Logistic regression with misclassification based on MLE
+MLE for logistic regression with misclassified responses
 }

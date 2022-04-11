@@ -66,7 +66,7 @@ double mle_logistic::f_grad(
   return f;
 }
 
-//' Logistic regression with misclassification based on MLE
+//' MLE for logistic regression with misclassified responses
 //'
 //' @param x a n x p matrix of design
 //' @param y a n-vector of response
@@ -111,7 +111,8 @@ Rcpp::List check(
 }
 
 
-//' Inverse Fisher information Matrix
+//' Inverse Fisher information matrix for logistic regression with misclassified
+//' responses
 //'
 //' @param x a n x p matrix of design
 //' @param beta a p-vector of parameter
@@ -222,7 +223,7 @@ Eigen::ArrayXd r_logistic(
   return y;
 }
 
-//' Parametric bootstrap for logistic
+//' Parametric bootstrap for logistic regression (with misclassified responses)
 //'
 //' @param beta a p-vector of parameter
 //' @param x a n x p design matrix

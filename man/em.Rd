@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{em}
 \alias{em}
-\title{EM algorithm for beta regression}
+\title{EM algorithm to compute the MLE for the beta regression with rounded responses}
 \usage{
 em(y, x, theta, maxit = 30L, eps = 1e-07, verbose = TRUE)
 }
@@ -20,5 +20,5 @@ em(y, x, theta, maxit = 30L, eps = 1e-07, verbose = TRUE)
 \item{verbose}{boolean for printing information}
 }
 \description{
-EM algorithm for beta regression
+EM algorithm to compute the MLE for the beta regression with rounded responses
 }

@@ -1,4 +1,9 @@
-#' @title Function to estimate consistent MLE for negative binomial
+#' @title Function to compute MLE for negative binomial with interfered responses
+#' @description
+#' Implementation of the MLE for negative binomial regression
+#' with interfered responses: one observes \eqn{\max(y_i,z_i)},
+#' where \eqn{y_i} is the negative binomial response and \eqn{z_i}
+#' is a Poisson random variable with mean \eqn{\lambda}.
 #' @param y response vector
 #' @param x design matrix
 #' @param lambda mean parameter for Poisson censoring process

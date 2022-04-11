@@ -249,7 +249,7 @@ Eigen::MatrixXd e_step(
 // ------------------
 // EM algorithm
 // ------------------
-//' EM algorithm for beta regression
+//' EM algorithm to compute the MLE for the beta regression with rounded responses
 //'
 //' @param y a n-vector of response
 //' @param x a n x p matrix of design

@@ -2,7 +2,7 @@
 % Please edit documentation in R/glm_negbin.R
 \name{glm_negbin}
 \alias{glm_negbin}
-\title{Function to estimate consistent MLE for negative binomial}
+\title{Function to compute MLE for negative binomial with interfered responses}
 \usage{
 glm_negbin(y, x, lambda, maxit = 50L, epsilon = 1e-07, trace = FALSE)
 }
@@ -20,5 +20,8 @@ glm_negbin(y, x, lambda, maxit = 50L, epsilon = 1e-07, trace = FALSE)
 \item{trace}{boolean for printing information}
 }
 \description{
-Function to estimate consistent MLE for negative binomial
+Implementation of the MLE for negative binomial regression
+with interfered responses: one observes \eqn{\max(y_i,z_i)},
+where \eqn{y_i} is the negative binomial response and \eqn{z_i}
+is a Poisson random variable with mean \eqn{\lambda}.
 }

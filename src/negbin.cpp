@@ -126,10 +126,10 @@ double nll_max(
   return of / n;
 }
 
-//' negative log-likelihood for beta coefficients
+//' Negative log-likelihood for beta coefficients (negative binomial regression)
 //'
 //' @param beta a p-vector of coefficients
-//' @param sigma parameter of negative binomial
+//' @param phi parameter of negative binomial
 //' @param y a n-vector of response
 //' @param x a n x p matrix of design
 //' @param lambda mean of Poisson censoring process
@@ -137,7 +137,7 @@ double nll_max(
 // [[Rcpp::export]]
 double nll_max_beta(
     const Eigen::VectorXd& beta,
-    const double& sigma,
+    const double& phi,
     const Eigen::VectorXd& y,
     const Eigen::MatrixXd& x,
     const double& lambda
@@ -150,24 +150,24 @@ double nll_max_beta(
 
   for(unsigned int i(0); i<n; ++i){
     mu = std::exp(eta(i));
-    of -= std::log(negbin_cdf(y(i),mu,sigma) * pois_cdf(y(i),lambda) -
-      negbin_cdf(y(i)-1,mu,sigma) * pois_cdf(y(i)-1,lambda));
+    of -= std::log(negbin_cdf(y(i),mu,phi) * pois_cdf(y(i),lambda) -
+      negbin_cdf(y(i)-1,mu,phi) * pois_cdf(y(i)-1,lambda));
   }
 
   return of / n;
 }
 
-//' negative log-likelihood for sigma
+//' Negative log-likelihood for phi (negative binomial regression)
 //'
-//' @param sigma parameter of negative binomial
+//' @param phi parameter of negative binomial
 //' @param beta a p-vector of coefficients
 //' @param y a n-vector of response
 //' @param x a n x p matrix of design
 //' @param lambda mean of Poisson censoring process
 //' @export
 // [[Rcpp::export]]
-double nll_max_sigma(
-    const double& sigma,
+double nll_max_phi(
+    const double& phi,
     const Eigen::VectorXd& beta,
     const Eigen::VectorXd& y,
     const Eigen::MatrixXd& x,
@@ -181,17 +181,17 @@ double nll_max_sigma(
 
   for(unsigned int i(0); i<n; ++i){
     mu = std::exp(eta(i));
-    of -= std::log(negbin_cdf(y(i),mu,sigma) * pois_cdf(y(i),lambda) -
-      negbin_cdf(y(i)-1,mu,sigma) * pois_cdf(y(i)-1,lambda));
+    of -= std::log(negbin_cdf(y(i),mu,phi) * pois_cdf(y(i),lambda) -
+      negbin_cdf(y(i)-1,mu,phi) * pois_cdf(y(i)-1,lambda));
   }
 
   return of / n;
 }
 
-//' log-likelihood for negative binomial
+//' Log-likelihood for negative binomial with interfered responses
 //'
 //' @param beta a p-vector of coefficients
-//' @param sigma parameter of negative binomial
+//' @param phi parameter of negative binomial
 //' @param y a n-vector of response
 //' @param x a n x p matrix of design
 //' @param lambda mean of Poisson censoring process
@@ -199,7 +199,7 @@ double nll_max_sigma(
 // [[Rcpp::export]]
 double logLike_negbin(
     const Eigen::VectorXd& beta,
-    const double& sigma,
+    const double& phi,
     const Eigen::VectorXd& y,
     const Eigen::MatrixXd& x,
     const double& lambda
@@ -212,8 +212,8 @@ double logLike_negbin(
 
   for(unsigned int i(0); i<n; ++i){
     mu = std::exp(eta(i));
-    of += std::log(negbin_cdf(y(i),mu,sigma) * pois_cdf(y(i),lambda) -
-      negbin_cdf(y(i)-1,mu,sigma) * pois_cdf(y(i)-1,lambda));
+    of += std::log(negbin_cdf(y(i),mu,phi) * pois_cdf(y(i),lambda) -
+      negbin_cdf(y(i)-1,mu,phi) * pois_cdf(y(i)-1,lambda));
   }
 
   return of;

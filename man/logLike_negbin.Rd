@@ -2,14 +2,14 @@
 % Please edit documentation in R/RcppExports.R
 \name{logLike_negbin}
 \alias{logLike_negbin}
-\title{log-likelihood for negative binomial}
+\title{Log-likelihood for negative binomial with interfered responses}
 \usage{
-logLike_negbin(beta, sigma, y, x, lambda)
+logLike_negbin(beta, phi, y, x, lambda)
 }
 \arguments{
 \item{beta}{a p-vector of coefficients}
 
-\item{sigma}{parameter of negative binomial}
+\item{phi}{parameter of negative binomial}
 
 \item{y}{a n-vector of response}
 
@@ -18,5 +18,5 @@ logLike_negbin(beta, sigma, y, x, lambda)
 \item{lambda}{mean of Poisson censoring process}
 }
 \description{
-log-likelihood for negative binomial
+Log-likelihood for negative binomial with interfered responses
 }
