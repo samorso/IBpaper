@@ -6,7 +6,7 @@
 
 ## Overview 
 
-This package contains the code we use for the simulations and real data analysis in the paper [Guerrier et al (2020)](https://arxiv.org/pdf/2002.08757.pdf).
+This package contains the code we use for the simulations and real data analysis in the paper [Zhang et al. (2022)](https://arxiv.org/pdf/2002.08757.pdf).
 
 To install this package:
 
@@ -56,4 +56,4 @@ x2          3.42 2.95 3.00
 x3          4.52 3.89 4.00
 ```
 
-The detailed code to run the simulations and real data analysis in the paper [Guerrier et al (2020)](https://arxiv.org/pdf/2002.08757.pdf) can be found in [this link](https://samorso.github.io/IBpaper/). 
+The detailed code to run the simulations and real data analysis in the paper [Zhang et al. (2022)](https://arxiv.org/pdf/2002.08757.pdf) can be found in [this link](https://samorso.github.io/IBpaper/). 

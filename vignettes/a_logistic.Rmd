@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Here we present how to perform the simulation studies in @guerrier2020general for the logistic regression, with and without misclassification. We warn the readers that the code presented here may take time to run on a personal computer. Indeed, for the paper, the computations were performed on the "Baobab" and "Yggdrasil" HPC clusters provided by the University of Geneva. 
+Here we present how to perform the simulation studies in @zhang2022flexible for the logistic regression, with and without misclassification. We warn the readers that the code presented here may take time to run on a personal computer. Indeed, for the paper, the computations were performed on the "Baobab" and "Yggdrasil" HPC clusters provided by the University of Geneva. 
 
 ## Setting
 
