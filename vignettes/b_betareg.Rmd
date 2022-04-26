@@ -4,7 +4,7 @@ output: rmarkdown::html_vignette
 bibliography: ../inst/REFERENCES.bib
 date: "`r Sys.Date()`"
 vignette: >
-  %\VignetteIndexEntry{Beta regression}
+  %\VignetteIndexEntry{Beta Regression}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
