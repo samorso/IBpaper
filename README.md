@@ -56,4 +56,4 @@ x2          3.42 2.95 3.00
 x3          4.52 3.89 4.00
 ```
 
-The detailed code to run the simulations and real data analysis in the paper [Zhang et al. (2022)](https://arxiv.org/pdf/2002.08757.pdf) can be found in [this link](https://samorso.github.io/IBpaper/). 
+The detailed code to run the simulations and real data analysis in the paper [Zhang et al. (2022)](https://arxiv.org/pdf/2204.07907.pdf) can be found in [this link](https://samorso.github.io/IBpaper/). 
