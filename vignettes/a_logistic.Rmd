@@ -22,7 +22,7 @@ Here we present how to perform the simulation studies in @zhang2022flexible for 
 
 ## Setting
 
-We use the following setting for the logistic regression, with and without rounding.
+We use the following setting for the logistic regression, with and without misclassification.
 
 ```{r setting}
 # packages
